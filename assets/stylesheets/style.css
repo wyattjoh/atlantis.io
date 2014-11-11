@@ -1,18 +1,18 @@
 body {
     background: url("../images/stardust.png");
 
-    -webkit-animation: backgroundMove 15s linear infinite;
-    animation: backgroundMove 15s linear infinite;
+    -webkit-animation: backgroundMove 80s linear infinite;
+    animation: backgroundMove 80s linear infinite;
 }
 
 @keyframes backgroundMove {
    from { background-position: 0px 0px; }
-   to { background-position: 67px 0px; }
+   to { background-position: 798px 798px; }
 }
 
 @-webkit-keyframes backgroundMove {
    from { background-position: 0px 0px; }
-   to { background-position: 67px 0px; }
+   to { background-position: 798px 798px; }
 }
 
 code {
