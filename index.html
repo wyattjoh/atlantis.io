@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+
+    <!-- JS -->
+    <script type="text/javascript" src="/assets/components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/assets/components/lodash/dist/lodash.min.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/app.js"></script>
+
+    <script type="text/javascript" src="/assets/components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/components/foundation/js/foundation/foundation.js"></script>
+    <script type="text/javascript" src="/assets/components/foundation/js/foundation/foundation.topbar.js"></script>
+
+    <script>
+        $(document).foundation();
+    </script>
+
+    <!-- CSS -->
+    <link href='/assets/components/foundation/css/foundation.css' rel='stylesheet'>
+    <link href='/assets/stylesheets/style.css' rel='stylesheet'>
+
+    <title>Atlantis</title>
+</head>
+
+<body ng-app="AtlantisLanding" ng-controller="ListingCtrl as listing">
+    <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+            <li class="name">
+                <h1><a href="#">Atlantis</a></h1>
+            </li>
+            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+            <ul class="right">
+                <li ng-repeat="item in listing.resources">
+                    <a ng-href="http://{{ ::item.url }}/">{{ ::item.name }}</a>
+                </li>
+            </ul>
+        </section>
+    </nav>
+
+    <div class="top-row row">
+        <div class="large-12 columns">
+            <p>Copy the following into your <code>/etc/hosts</code> to allow the urls to work:</p>
+            <code>{{ listing.config.ip }} {{ listing.resources_string }}</code>
+        </div>
+    </div>
+
+</body>
+</html>

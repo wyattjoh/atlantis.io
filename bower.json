@@ -1,0 +1,21 @@
+{
+  "name": "atlantis.io",
+  "version": "0.0.0",
+  "authors": [
+    "Wyatt Johnson <wyattjoh@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.2",
+    "foundation": "~5.4.7",
+    "lodash": "~2.4.1"
+  }
+}
