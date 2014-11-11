@@ -54,7 +54,7 @@
         <p>Copy the following into your terminal to setup the urls:</p>
         <code onclick="window.selectText(this)">sudo python -c "$(curl -fsSL http://{{ ::listing.host }}/script/script.py)"</code>
 
-        <p ng-hide="listing.firstTime">Then click <a ng-href="http://{{ ::listing.config.url }}">here</a>.</p>
+        <p ng-show="listing.firstTime">Then click <a ng-href="http://{{ ::listing.config.url }}">here</a>.</p>
     </div>
 
     <!-- JS -->
