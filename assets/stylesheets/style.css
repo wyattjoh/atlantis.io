@@ -1,5 +1,18 @@
 body {
     background: url("../images/stardust.png");
+
+    -webkit-animation: backgroundMove 15s linear infinite;
+    animation: backgroundMove 15s linear infinite;
+}
+
+@keyframes backgroundMove {
+   from { background-position: 0px 0px; }
+   to { background-position: 67px 0px; }
+}
+
+@-webkit-keyframes backgroundMove {
+   from { background-position: 0px 0px; }
+   to { background-position: 67px 0px; }
 }
 
 code {
@@ -47,7 +60,23 @@ code {
     height: 150px;
     background: url("../images/cubes.png");
     display: block;
+
+    -webkit-animation: backgroundMoveImage 8s linear infinite;
+    animation: backgroundMoveImage 8s linear infinite;
 }
+
+/* 67px wide */
+
+@keyframes backgroundMoveImage {
+    from { background-position: 0px 100px; }
+    to { background-position: 0px 0px; }
+}
+
+@-webkit-keyframes backgroundMoveImage {
+    from { background-position: 0px 100px; }
+    to { background-position: 0px 0px; }
+}
+
 
 .grid figure img, .grid figure .image {
     position: relative;
