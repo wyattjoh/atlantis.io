@@ -37,6 +37,11 @@
             }
             return color;
         });
+
+        vm.randomStyle = {
+            'background': vm.getRandomColor(vm),
+            'border-color': vm.getRandomColor(vm)
+        };
     };
 
     app.controller("ListingCtrl", ListingCtrl);

@@ -22,7 +22,7 @@
 
         <section class="top-bar-section">
             <ul class="right">
-                <li><a href="#" ng-style="{ background: listing.getRandomColor(this) }" data-reveal-id="myModal">Setup</a></li>
+                <li><a href="#" ng-style="listing.randomStyle" data-reveal-id="myModal">Setup</a></li>
             </ul>
         </section>
     </nav>
@@ -45,7 +45,7 @@
 
     <div id="myModal" class="reveal-modal" data-reveal>
         <a ng-hide="listing.firstTime" class="close-reveal-modal">&#215;</a>
-        <div data-alert class="alert-box alert" ng-show="listing.firstTime">
+        <div data-alert class="alert-box" ng-style="listing.randomStyle" ng-show="listing.firstTime">
           Hmm, it seems you're not using the proper url's, here is how to set this up.
         </div>
 
@@ -54,7 +54,7 @@
         <p>Copy the following into your terminal to setup the urls:</p>
         <code onclick="window.selectText(this)">sudo python -c "$(curl -fsSL http://{{ ::listing.host }}/script/script.py)"</code>
 
-        <p ng-show="listing.firstTime">Then click <a ng-href="http://{{ ::listing.config.url }}">here</a>.</p>
+        <a class="button" ng-href="http://{{ ::listing.config.url }}" ng-style="{ background: listing.getRandomColor(this) }">Refresh to reload</a>
     </div>
 
     <!-- JS -->
