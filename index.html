@@ -46,7 +46,7 @@
     <div id="myModal" class="reveal-modal" data-reveal>
         <h2>Setup Instructions</h2>
         <p>Copy the following into your terminal to setup the urls:</p>
-        <code>sudo python -c "$(curl -fsSL http://{{ ::listing.config.url }}/script/script.py)"</code>
+        <code onclick="window.selectText(this)">sudo python -c "$(curl -fsSL http://{{ ::listing.host }}/script/script.py)"</code>
 
         <a class="close-reveal-modal">&#215;</a>
     </div>
