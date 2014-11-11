@@ -8,12 +8,23 @@
         // Set hostname
         vm.host = window.location.host;
 
+        var handleResources = function(response) {
+            vm.config = response;
+
+            if (vm.host != vm.config.url) {
+                console.log("mismatch detected: " + vm.host + " != " + vm.config.url);
+
+                $('#myModal').foundation('reveal', 'open');
+
+                vm.firstTime = true;
+            } else {
+                vm.resources = response.data;
+            }
+        };
+
         // Fetch the resources
         $http.get("/data/resources.json")
-            .success(function(response) {
-                vm.resources = response.data;
-                vm.config = response;
-            })
+            .success(handleResources)
             .error(function(err) {
                 console.error(err);
             });
