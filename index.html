@@ -3,19 +3,6 @@
 <head>
     <meta charset='UTF-8'>
 
-    <!-- JS -->
-    <script type="text/javascript" src="/assets/components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="/assets/components/lodash/dist/lodash.min.js"></script>
-    <script type="text/javascript" src="/assets/javascripts/app.js"></script>
-
-    <script type="text/javascript" src="/assets/components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="/assets/components/foundation/js/foundation/foundation.js"></script>
-    <script type="text/javascript" src="/assets/components/foundation/js/foundation/foundation.topbar.js"></script>
-
-    <script>
-        $(document).foundation();
-    </script>
-
     <!-- CSS -->
     <link href='/assets/components/foundation/css/foundation.css' rel='stylesheet'>
     <link href='/assets/stylesheets/style.css' rel='stylesheet'>
@@ -27,27 +14,55 @@
     <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
             <li class="name">
-                <h1><a href="#">{{ ::listing.config.name }}</a></h1>
+                <h1 ng-cloak><a href="#">{{ ::listing.config.name }}</a></h1>
             </li>
             <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            <li class="toggle-topbar menu-icon"><a href="/"><span>Menu</span></a></li>
         </ul>
 
         <section class="top-bar-section">
             <ul class="right">
-                <li ng-repeat="item in listing.resources">
-                    <a ng-href="http://{{ ::item.url }}/">{{ ::item.name }}</a>
-                </li>
+                <li><a href="#" class="special" data-reveal-id="myModal">Setup</a></li>
             </ul>
         </section>
     </nav>
 
-    <div class="top-row row">
+    <div class="top-row row" ng-cloak>
         <div class="large-12 columns">
-            <p>Copy the following into your <code>/etc/hosts</code> to allow the urls to work:</p>
-            <code>{{ ::listing.config.ip }} {{ ::listing.resources_string }}</code>
+            <div class="grid">
+                <figure class="effect-goliath" ng-repeat="item in ::listing.resources">
+                    <!-- <img ng-src="http://lorempixel.com/480/150/animals/{{ ::$index }}" alt="{{ ::item.name }}"> -->
+                    <div class="image"></div>
+                    <figcaption>
+                        <h2>{{ ::item.name }}</h2>
+                        <p>Open {{ ::item.name }} on {{ ::listing.config.name }}</p>
+                        <a ng-href="http://{{ ::item.url }}">Open {{ ::item.name }} on {{ ::listing.config.name }}</a>
+                    </figcaption>
+                </figure>
+            </div>
         </div>
     </div>
 
+    <div id="myModal" class="reveal-modal" data-reveal>
+        <h2>Setup Instructions</h2>
+        <p>Copy the following into your terminal to setup the urls:</p>
+        <code>sudo python -c "$(curl -fsSL http://{{ ::listing.config.url }}/script/script.py)"</code>
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <!-- JS -->
+    <script type="text/javascript" src="/assets/components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/app.js"></script>
+
+    <script type="text/javascript" src="/assets/components/fastclick/lib/fastclick.js"></script>
+    <script type="text/javascript" src="/assets/components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/components/foundation/js/foundation/foundation.js"></script>
+    <script type="text/javascript" src="/assets/components/foundation/js/foundation/foundation.topbar.js"></script>
+    <script type="text/javascript" src="/assets/components/foundation/js/foundation/foundation.reveal.js"></script>
+
+    <script type="text/javascript">
+        $(document).foundation();
+    </script>
 </body>
 </html>

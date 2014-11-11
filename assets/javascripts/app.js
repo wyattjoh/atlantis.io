@@ -8,7 +8,6 @@
         $http.get("/data/resources.json")
             .success(function(response) {
                 vm.resources = response.data;
-                vm.resources_string = _.pluck(response.data, 'url').join(" ");
                 vm.config = response;
             })
             .error(function(err) {
