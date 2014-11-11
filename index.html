@@ -22,7 +22,7 @@
 
         <section class="top-bar-section">
             <ul class="right">
-                <li><a href="#" class="special" data-reveal-id="myModal">Setup</a></li>
+                <li><a href="#" ng-style="{ background: listing.getRandomColor(this) }" data-reveal-id="myModal">Setup</a></li>
             </ul>
         </section>
     </nav>
@@ -30,7 +30,7 @@
     <div class="top-row row" ng-cloak>
         <div class="large-12 columns">
             <div class="grid">
-                <figure class="effect-goliath" ng-repeat="item in ::listing.resources">
+                <figure class="effect-goliath" ng-repeat="item in ::listing.resources" ng-style="{ background: listing.getRandomColor(item.name) }">
                     <!-- <img ng-src="http://lorempixel.com/480/150/animals/{{ ::$index }}" alt="{{ ::item.name }}"> -->
                     <div class="image"></div>
                     <figcaption>
@@ -59,6 +59,7 @@
 
     <!-- JS -->
     <script type="text/javascript" src="/assets/components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/assets/components/lodash/dist/lodash.min.js"></script>
     <script type="text/javascript" src="/assets/javascripts/app.js"></script>
 
     <script type="text/javascript" src="/assets/components/fastclick/lib/fastclick.js"></script>

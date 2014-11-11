@@ -24,10 +24,19 @@
 
         // Fetch the resources
         $http.get("/data/resources.json")
-            .success(handleResources)
-            .error(function(err) {
-                console.error(err);
-            });
+        .success(handleResources)
+        .error(function(err) {
+            console.error(err);
+        });
+
+        vm.getRandomColor = _.memoize(function(tok) {
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        });
     };
 
     app.controller("ListingCtrl", ListingCtrl);
