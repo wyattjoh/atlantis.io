@@ -60,7 +60,9 @@ code {
     height: 150px;
     background: url("../images/cubes.png");
     display: block;
+}
 
+.grid figure .image.animated {
     -webkit-animation: backgroundMoveImage 8s linear infinite;
     animation: backgroundMoveImage 8s linear infinite;
 }
