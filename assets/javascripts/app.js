@@ -131,11 +131,11 @@
                     // Add in scope details
 
                     // If there is any
-                    if (scope.resource.data) {
+                    if (scope.resource.plugin.data) {
                         // Loop over them
-                        for (var key in scope.resource.data) {
+                        for (var key in scope.resource.plugin.data) {
                             // And add them to the scope
-                            resourceScope[key] = scope.resource.data[key];
+                            resourceScope[key] = scope.resource.plugin.data[key];
                         }
                     }
 

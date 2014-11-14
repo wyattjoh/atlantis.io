@@ -103,7 +103,8 @@ code {
 }
 
 .grid figure figcaption,
-.grid figure figcaption > a {
+.grid figure figcaption > a,
+.grid figure figcaption  a.hidden {
     position: absolute;
     top: 0;
     left: 0;
@@ -113,7 +114,8 @@ code {
 
 /* Anchor will cover the whole item by default */
 /* For some effects it will show as a button */
-.grid figure figcaption > a {
+.grid figure figcaption > a,
+.grid figure figcaption a.hidden {
     z-index: 1000;
     text-indent: 200%;
     white-space: nowrap;
