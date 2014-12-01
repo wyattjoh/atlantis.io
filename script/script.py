@@ -5,7 +5,7 @@ if os.geteuid() != 0:
 
 import urllib, json
 
-response = urllib.urlopen("http://10.0.1.2/data/resources.json")
+response = urllib.urlopen("http://10.0.1.2/data/config.json")
 data = json.loads(response.read())
 
 if data["ip"] in open("/etc/hosts").read():
